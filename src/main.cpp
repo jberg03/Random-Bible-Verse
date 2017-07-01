@@ -5,8 +5,6 @@
 #include <regex>
 #include <random>
 
-
-
 class CSVRow
 {
     public:
@@ -42,13 +40,14 @@ class CSVRow
         std::vector<std::string>    m_data;
 };
 
+//Overload the >> operator
 std::istream& operator>>(std::istream& str, CSVRow& data)
 {
     data.readNextRow(str);
     return str;
 }
 
-int main()
+int main( int argc,  char** argv )
 {
     std::ifstream       file("Bible-Graph.csv");
     CSVRow              row;
